@@ -1,22 +1,15 @@
-# まなび日和 v1.0
+# まなび日和 v1.2
 
-学習・集中管理用のPWAです。HTML/CSS/JavaScriptだけで動作し、データは各端末のブラウザのlocalStorageに保存されます。
+PCサイドメニュー・ホーム画面・スマホ下部タブが表示されない問題を修正しました。
 
-## GitHub Pagesで公開
-1. GitHubで `manabi-biyori` というPublicリポジトリを作成。
-2. このフォルダの**中身**（index.html、script.js、style.css、manifest.webmanifest、service-worker.js、icon-192.png、icon-512.png、README.md）をリポジトリ直下へアップロード。
-3. Commit changes欄に `Launch まなび日和 v1.0` と入力し、**Commit directly to the main branch** を選択して **Commit changes** をクリック。
-4. Settings → Pages → Build and deployment → Deploy from a branch → `main` / `/(root)` → Save。
-5. 公開後のURLは `https://ユーザー名.github.io/manabi-biyori/` です。数分後に開いてください。
-6. スマホで公開URLを開き、iPhoneはSafariの共有→ホーム画面に追加、AndroidはChromeのメニュー→アプリをインストール／ホーム画面に追加。
+原因：設定画面でのみ存在するファイル入力欄へ起動時にイベント登録しようとしてJavaScriptが停止していました。イベント委譲に変更し、初期描画を妨げないようにしました。
 
-## 更新時のコミット
-- Commit message: `Update まなび日和 v1.0`
-- Extended description: `Improve study tracking, focus timer, calendar, goals, analytics, and PWA assets.`
-- Branch: `main` を選び、**Commit changes** をクリック。
+青色アイコン・既存デザイン・学習データ保存キーは維持。HTML、manifest、Service Workerのバージョンを更新しました。
 
-## 注意
-- ブラウザのデータ消去や端末変更で記録は消えます。設定からJSONバックアップを定期的に保存してください。
-- スマホとPCは自動同期しません。JSONで手動移行できます。
-- 終了音はブラウザの制限により、アプリを閉じている間には鳴らない場合があります。
-- GitHub PagesはHTTPSのためPWAが利用できます。ファイルを直接開く場合はPWAは有効になりません。
+## GitHub Pages更新
+
+解凍後のファイル一式をリポジトリのルートへアップロードし、mainにコミットします。
+
+Commit message: `Fix Manabi Biyori v1.2 navigation and dashboard`
+
+反映後にCtrl+Shift+Rで強制再読み込みしてください。
